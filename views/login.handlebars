@@ -1,39 +1,35 @@
 <div class="row">
   <div class="col-md-6">
     <h2>Login</h2>
-
-    <form class="form login-form">
+{{!-- Login --}}
+    <form id="login-form" class="form login-form">
       <div class="form-group">
         <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
+        <input class="form-input" type="text" id="username-input-login" />
       </div>
       <div class="form-group">
         <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+        <input class="form-input" type="password" id="password-input-login" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+        <button class="btn btn-primary" id="login-btn" type="submit">login</button>
       </div>
     </form>
   </div>
   <div class="col-md-6">
     <h2>Signup</h2>
-
-    <form class="form signup-form">
+{{!-- Sign Up --}}
+    <form class="form signup-form" id="signup-form">
       <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <label for="name-signup">Username:</label>
+        <input class="form-input"type="text" id="username-input-signup" />
       </div>
       <div class="form-group">
         <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+        <input class="form-input" type="password" id="password-input-signup" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
+        <button class="btn btn-primary"  id="signup-btn" type="submit">signup</button>
       </div>
     </form>
   </div>
