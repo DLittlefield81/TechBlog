@@ -1,8 +1,12 @@
-<div class="posts list-group">
+<div class="posts list-group d-flex flex-wrap">
     {{#each posts}}
-    <a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}">
-        <span>{{title}}</span>
-        <span>{{format_date createdAt}}</span>
-    </a>
+    <div class="card card-rounded" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{format_date createdAt}}</h6>
+            <p class="card-text">{{body}}</p>
+            <a href="/dashboard/edit/{{id}}" class="card-link">Review</a>
+        </div>
+    </div>
     {{/each}}
 </div>

@@ -4,7 +4,7 @@ const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, (req, res) => {
   const body = req.body;
-  console.log(req.session.userId);
+  console.log(">>>>>>>>>>>>>>>Post Route POST");
   Post.create({ ...body, userId: req.session.userId })
     .then(newPost => {
       res.json(newPost);
@@ -15,6 +15,7 @@ router.post("/", withAuth, (req, res) => {
 });
 
 router.put("/:id", withAuth, (req, res) => {
+  console.log(">>>>>>>>>>>>>>>Post Route PUT");
   Post.update(req.body, {
     where: {
       id: req.params.id
