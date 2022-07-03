@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sylvia's Tech Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amita:wght@700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechBlog</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Sarpanch&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/css/jass.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
 
-<body class="flex-column min-100-vh">
-    <header class="hero">
-        <h1 class="app-title"><a href="/">Sylvia's Tech Blog</a></h1>
-        <nav class="navbar">
-        <ul class="flex-row">
-            <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-            <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-        </ul>
-    </nav>
-    </header>
-    
-    <main class="col-auto">
-        {{{body}}}
-    </main>
+    <body class="flex-column min-100-vh">
+        <div class="flex-column justify-space-around">
+            <header class="display-flex justify-space-between align-center p-2">
+                <h1>
+                    <span role="img" aria-label="star">🌟</span>
+                    <a href="/">TechBlog</a>
+                </h1>
+                <nav class="navbar">
+                    <div class="d-flex flex-row m-2">
+                        <div class="p-2"><a href="/">Home</a></div>
+                        <div class="p-2"><a href="/dashboard/new">New Post</a></div>
+                        <div class="p-2"><a href="/dashboard">Dashboard</a></div>
+                        <div class="p-2"><a href="#" id="logout-link">Logout</a></div>
+                    </div>
+                </nav>
+            </header>
 
-    <footer class="footer flex-row justify-center">
-        <a href="/dashboard/new">➕ New Post</a>
-    </footer>
-</body>
+            <main class="container container-fluid mt-5">
+                {{{body}}}
+            </main>
 
-<script src="/javascript/logout.js"></script>
+            <footer class="footer flex-row justify-center">
 
-</html>
+            </footer>
+        </body>
+
+        <script src="/js/logout.js"></script>
+
+    </html>

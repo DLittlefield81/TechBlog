@@ -4,12 +4,13 @@ const { Post, Comment, User } = require("../models/");
 // get all posts for homepage
 router.get("/", (req, res) => {
     Post.findAll({
-        include: [User],
+        include: [User ],
     })
         .then((dbPostData) => {
             const posts = dbPostData.map((post) => post.get({ plain: true }));
-
-            res.render("all-posts", { posts });
+            res.render("all-posts", {
+                posts,
+                logged_in: req.session.logged_in });
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -43,7 +44,7 @@ router.get("/post/:id", (req, res) => {
 
 router.get("/login", (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect("/");
+        res.redirect("/dashboard");
         return;
     }
 
