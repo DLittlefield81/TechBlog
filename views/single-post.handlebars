@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="card-body">
-            {{post.body}}
+            {{post.content}}
         </div>
     </article>
 
@@ -21,7 +21,7 @@
             {{#each post.Comments}}
             <div>
                 <p>
-                    {{body}}
+                    {{content}}
                 </p>
                 <p>
                     &mdash; {{User.username}}, {{format_date createdAt}}
@@ -40,9 +40,9 @@
         <div class="card-body">
             <input type="hidden" name="post-id" value="{{post.id}}" />
 
-            <label class="form-label" for="comment-body">Comment</label>
+            <label class="form-label" for="comment-content">Comment</label>
 
-            <textarea name="comment-body" class="form-input"></textarea>
+            <textarea name="comment-content" class="form-input"></textarea>
 
             <button type="submit" class="btn">Submit</button>
         </div>

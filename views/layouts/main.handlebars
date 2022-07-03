@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechBlog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sarpanch&display=swap"
-      rel="stylesheet">
-    <link rel="stylesheet" href="/css/jass.css">
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechBlog</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Sarpanch&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/css/jass.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
 
-  <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-        <h1>
-          <span role="img" aria-label="star">🌟</span>
-          <a href="/">TechBlog</a>
-        </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          <div class="d-flex flex-row m-2 ">
-            {{#if logged_in}}
-            <div class="p-2"><a href="/dashboard">Dashboard</a></div>
-            <div class="p-2"><a href="#" id="logout-link">logout</a></div>
-            {{else}}
-            <div><a href="/login">login</a></div>
-            {{/if}}
-          </div>
-        </nav>
-      </header>
+    <body>
+        <div class="flex-column justify-space-around">
+            <header class="display-flex justify-space-between align-center p-2">
+                <h1>
+                    <span role="img" aria-label="star">🌟</span>
+                    <a href="/">TechBlog</a>
+                </h1>
+                <nav>
+                    <!-- Conditionally render login or logout links -->
+                    <div class="d-flex flex-row m-2">
+                        {{#if loggedIn}}
+                        <div class="p-2"><a href="/">Home</a></div>
+                        <div class="p-2"><a href="/dashboard/new">New Post</a></div>
+                        <div class="p-2"><a href="/dashboard">Dashboard</a></div>
+                        <div class="p-2"><a href="#" id="logout-link">logout</a></div>
+                        {{else}}
+                        <div><a href="/login">login</a></div>
+                        {{/if}}
+                    </div>
+                </nav>
+            </header>
 
 
-      <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{ body }}}
-      </main>
-      <footer>
+            <main class="container container-fluid mt-5">
+                <!-- Render the sub layout -->
+                {{{ body }}}
+            </main>
+            <footer>
 
-      </footer>
-    </div>
+            </footer>
+        </div>
 
-    <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-  </body>
+        <!-- Render script for logged in users only -->
+        {{#if loggedIn}}
+        <script src="/js/logout.js"></script>
+        {{/if}}
+    </body>
 
 </html>

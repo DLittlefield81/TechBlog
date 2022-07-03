@@ -1,19 +1,17 @@
 const newFormHandler = async function (event) {
     event.preventDefault();
 
-    const title = document.querySelector('#post-title').value;
-    const body = document.querySelector('#post-body').value;
-
-    //const token = localStorage.getItem("token");
+    const title = document.querySelector('#post-title').value.trim();
+    const content = document.querySelector('#post-content').value.trim();
+  
     await fetch(`/api/post`, {
         method: "POST",
         body: JSON.stringify({
             title,
-            body
+            content
         }),
         headers: {
             "Content-Type": "application/json"
-            //,authorization: `Bearer ${token}`
         }
     });
 

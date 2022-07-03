@@ -1,0 +1,40 @@
+<div class="d-flex flex-row ">
+<div class="card card-rounded" style="width: 25rem;">
+  <div class="card-header card-title">
+    Create a New Post
+  </div>
+  <form class="form new-blog-form" >
+      <div class=" form-group p-3">
+        <label for="blog-name ">Post Title:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
+      </div>
+      <div class="form-group p-3">
+        <label for="blog-desc">Post Content:</label>
+        <textarea class="form-input" id="post-content" name="post-content"></textarea>
+      </div>
+      <div class="form-group p-3">
+        <button type="submit" class="btn btn-primary" id="new-post-form">Create Post</button>
+      </div>
+    </form>
+  </div>
+
+
+
+<div class="posts list-group d-flex flex-wrap ">
+    {{#each posts as |post| }}
+    <div class="card card-rounded m-2" style="width: 18rem;">
+        <div class="card-header">
+            <h5 class="card-title">{{post.postTitle}}</h5>
+        </div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{date_created}}</h6>
+            <p class="card-text">{{post.postContent}}</p>
+            <a href="/dashboard/edit/{{id}}" class="card-link">Edit</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+</div>
+<script src="/js/new.js"></script>
+<script src="/js/edit.js"></script>
