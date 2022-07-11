@@ -24,34 +24,54 @@ router.get("/", async (req, res) => {
     };
 });
 
-// get single post
-router.get("/post/:id", async (req, res) => {
-    try {
-        const postData = await Post.findOne({
-            where: { id: req.params.id },
-            include: [
-                User,
-                {
-                    model: Comment,
-                    include: [User],
-                },
-            ],
-        });
-        if (postData) {
-            // serialize the data
-            const post = postData.get({ plain: true });
-            // which view should we render for a single-post? - DONE!
-            console.log(post);
+
+router.get('/post/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'postTitle',
+            'postContent',
+            'dateCreated'
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'commentContent', 'post_id', 'user_id', 'dateCreated'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+        .then(postData => {
+            if (!postData) {
+                res.status(404).json({
+                    message: 'No post found with this id'
+                });
+                return;
+            }
+
+            const post = postData.get({
+                plain: true
+            });
+
             res.render('single-post', {
                 post,
                 loggedIn: req.session.loggedIn
-});
-        } else {
-            res.status(404).end();
-        }
-    } catch (err) {
-        res.status(500).json(err);
-    }
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.get("/login", (req, res) => {
