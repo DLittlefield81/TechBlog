@@ -2,8 +2,8 @@ console.log('NewPostScript Loaded<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
 const newFormHandler = async function (event) {
     event.preventDefault();
 
-    const post_title = document.querySelector('#post-title').value.trim();
-    const post_content = document.querySelector('#post-content').value.trim();
+    const post_title = document.querySelector('input[id="post-title"]').value.trim();
+    const post_content = document.querySelector('textarea[id="post-content"]').value.trim();
 
     if (post_title && post_content) {
         console.log('Trying to create post<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
@@ -22,5 +22,5 @@ const newFormHandler = async function (event) {
     }
 };
     document
-        .querySelector("#new-post-form")
+        .querySelector(".new-blog-form")
         .addEventListener("submit", newFormHandler)

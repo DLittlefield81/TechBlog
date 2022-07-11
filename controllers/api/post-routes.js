@@ -6,7 +6,8 @@ router.post('/', withAuth, async (req, res) => {
   console.log('POST HERE<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   try {
     const newPost = await Post.create({
-      ...req.body,
+      postTitle: req.body.post_title,
+        postContent: req.body.post_content,
       user_id: req.session.user_id,
     });
 
@@ -19,8 +20,8 @@ router.post('/', withAuth, async (req, res) => {
 //Edit Post with ID
 router.put("/:id", async (req, res) => {
   Post.update({
-    title: req.body.post_title,
-    content: req.body.post_content,
+    postTitle: req.body.post_title,
+    postContent: req.body.post_content,
   }, {
     where: {
       id: req.params.id//, loggedIn: req.session.loggedIn
@@ -43,8 +44,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: req.params.id
       },
     });
     if (!postData) {

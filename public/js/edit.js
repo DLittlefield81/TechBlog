@@ -2,8 +2,8 @@
 const editFormHandler = async function (event) {
     event.preventDefault();
     console.log('UPDATING ENTRY<<<<<<<<<<<<<<<<<<<<<<<<<')
-    const post_title = document.querySelector('#post-title').value.trim();
-    const post_content = document.querySelector('#post-content').value.trim();
+    const post_title = document.querySelector('input[id="post-title"]').value.trim();
+    const post_content = document.querySelector('textarea[id="post-content"]').value.trim();
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
