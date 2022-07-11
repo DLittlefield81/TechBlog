@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -27,11 +28,15 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//Body Parser
+app.use(express.urlencoded({ extended: false }));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

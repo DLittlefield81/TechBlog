@@ -1,30 +1,30 @@
-<div class="post">
-    <article class="card">
+<div class="post ">
+    <article class="card m-2">
         <div class="card-header flex-row justify-space-between">
-            <h2>{{post.title}}</h2>
+            <h2>{{post.postTitle}}</h2>
             <div>
-                Posted by {{post.User.username}} on {{format_date post.createdAt}}
+                Posted by {{user.username}} on {{post.date_created}}
             </div>
         </div>
         <div class="card-body">
-            {{post.content}}
+            {{post.postContent}}
         </div>
     </article>
 
     {{#if post.Comments}}
-    <section class="card">
+    <section class="card m-2">
         <div class="card-header">
             <h3>Comments</h3>
         </div>
 
         <div class="card-body">
-            {{#each post.Comments}}
+            {{#each post.comment_content}}
             <div>
                 <p>
-                    {{content}}
+                    {{comment_content}}
                 </p>
                 <p>
-                    &mdash; {{User.username}}, {{format_date createdAt}}
+                    &mdash; {{user.username}}, {{date_created}}
                 </p>
             </div>
             {{/each}}
@@ -32,17 +32,17 @@
     </section>
     {{/if}}
 
-    <form id="new-comment-form" class="card">
+    <form id="new-comment-form" class="card m-2">
         <div class="card-header">
             <h3>Add a Comment</h3>
         </div>
 
         <div class="card-body">
-            <input type="hidden" name="post-id" value="{{post.id}}" />
+            <input type="hidden" id="post-id" name="post-id" value="{{post.id}}" />
 
             <label class="form-label" for="comment-content">Comment</label>
 
-            <textarea name="comment-content" class="form-input"></textarea>
+            <textarea id="comment-content" name="comment-content" class="form-input"></textarea>
 
             <button type="submit" class="btn">Submit</button>
         </div>

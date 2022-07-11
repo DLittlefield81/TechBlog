@@ -1,20 +1,21 @@
-<div class="posts card-rounded">
+{{!-- <div class="posts card-rounded">
     {{#each posts}}
     <article class="card card-rounded">
         <div class="card-header flex-row justify-space-between ">
             <h2>
-                <a href="/post/{{id}}">{{title}}</a>
+                <a href="/post/{{id}}">{{postTitle}}</a>
             </h2>
             <div>
-                Posted by {{User.username}} on {{format_date createdAt}}
+                Posted by {{User.username}} on {{date_created}}
             </div>
         </div>
         <div class="card-body">
-            {{content}}
+            {{postContent}}
         </div>
     </article>
     {{/each}}
-</div><div class="card card-rounded">
+</div> --}}
+<div class="card card-rounded">
   <h2 class="card-header">Edit Post</h2>
   <form class="card-body" id="edit-post-form">
       <div>
@@ -27,8 +28,8 @@
       <textarea class="form-textarea form-input" name="post-content" id="post-content" value="{{post.postContent}}"/>{{post.postContent}}</textarea>
     </div>
  
-    <button class="btn btn-primary" type="submit">EDIT</button>
-    <input type="hidden" name="post-id" value="{{post.id}}"/>
+    <button class="btn btn-primary" type="submit" id="updateEntry">UPDATE</button>
+    {{!-- <input type="hidden" id="post-id" name="post-id" value={{post.id}}/> --}}
   </form>
   <div class="card-body">
    <button class="btn btn-primary" type="click" id="delete-btn">DELETE</button>
